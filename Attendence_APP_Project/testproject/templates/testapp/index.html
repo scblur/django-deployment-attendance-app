@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index/Form</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Hello, User!</h1>
+    <h2>Please Mark your Attendence Below: </h2>
+
+    <div class="container">
+      <form method="POST">
+          {{ form.as_p }}
+          {% csrf_token %}
+          <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+    </div>
+
+    <!-- <div class="tableclass">
+      {% if session_list %}
+        <table>
+          <thead>
+            <th>Date/Time</th>
+            <th>Morning_Attendence</th>
+            <th>Evening_Attendence</th>
+          </thead>
+          {% for sess in session_list %}
+          <tr>
+            <td>{{ sess.t_date }}</td>
+            <td>{{ sess.morning }}</td>
+            <td>{{ sess.evening }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        {% else %}
+          <p>No session_list Found!!</p>
+      {% endif %}
+    </div> -->
+  </body>
+</html>
